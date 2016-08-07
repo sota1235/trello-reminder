@@ -9,3 +9,26 @@ client.get('/1/members/me/boards', (err, data) => {
   if (err) throw err;
   console.log(data);
 });
+
+export default class TrelloClient {
+  /**
+   * @param {string} userName
+   * @return {Array}
+   */
+  getBoards(userName = 'me') {
+  }
+
+  /**
+   * @param {number} boardId
+   * @return {Array}
+   */
+  getLists(boardId) {
+  }
+
+  /**
+   * @param {number} listId
+   * @return {Array}
+   */
+  getCards(listId) {
+  }
+}
