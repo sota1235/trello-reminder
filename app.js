@@ -7,8 +7,8 @@ app.use(route.get('/', function *() {
   this.body = 'Task reminder for LINE bot API';
 }));
 
-app.use(route.get('/callback', function *() {
-  this.body = 'Hello, world';
+app.use(route.post('/callback', function *() {
+  this.status = 200;
 }));
 
 console.log('app start.');
