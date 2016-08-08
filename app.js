@@ -1,15 +1,23 @@
-import koa   from 'koa';
-import route from 'koa-route';
+import koa       from 'koa';
+import koaRouter from 'koa-router';
+import koaBody   from 'koa-body';
 
 const app = koa();
+const router = koaRouter();
+const bodyParser = koaBody();
 
-app.use(route.get('/', function *() {
+router.get('/', function *() {
   this.body = 'Task reminder for LINE bot API';
-}));
+});
 
-app.use(route.post('/callback', function *() {
+router.post('/callback', bodyParser, function *() {
+  console.log(this.request.body);
   this.status = 200;
-}));
+});
+
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 const port = process.env.PORT || 3000;
 
