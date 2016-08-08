@@ -7,12 +7,14 @@
     "node": ">=6.2.1"
   },
   "scripts": {
+    "start": "NODE_ENV=production babel-node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ -c airbnb"
   },
   "author": "sota1235",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.11.4",
     "babel-preset-es2015": "^6.13.2",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
@@ -22,6 +24,8 @@
   },
   "dependencies": {
     "config": "^1.21.0",
+    "koa": "^1.2.1",
+    "koa-route": "^2.4.2",
     "node-trello": "^1.1.2"
   }
 }
