@@ -11,6 +11,8 @@ app.use(route.post('/callback', function *() {
   this.status = 200;
 }));
 
+const port = process.env.PORT || 3000;
+
 console.log('app start.');
 console.log('Access to localhost:3000');
-app.listen(3000);
+app.listen(port);
