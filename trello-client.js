@@ -1,21 +1,36 @@
 import Trello from 'node-trello';
 import config from 'config';
 
-const trelloConfig = config.get('trello');
+/**
+ * @param {Trello} client
+ * @return {Promise<mixed|Error>}
+ */
+const getPromise = (client, uri) => new Promise((resolve, reject) => {
+  client.get(uri, (err, data) => {
+    if (err) {
+      reject(err);
+    }
 
-const client = new Trello(trelloConfig.key, trelloConfig.token);
-
-client.get('/1/members/me/boards', (err, data) => {
-  if (err) throw err;
-  console.log(data);
+    resolve(data);
+  });
 });
 
+/**
+ * @class TrelloClient
+ */
 export default class TrelloClient {
+  constructor() {
+    const trelloConfig = config.get('trello');
+    this.client = new Trello(trelloConfig.key, trelloConfig.token);
+  }
+
   /**
    * @param {string} userName
-   * @return {Array}
+   * @return {Promise<Array|Error>}
    */
   getBoards(userName = 'me') {
+    const uri = `/1/members/${userName}/boards`;
+    return getPromise(this.client, uri);
   }
 
   /**
@@ -23,6 +38,8 @@ export default class TrelloClient {
    * @return {Array}
    */
   getLists(boardId) {
+    const uri = `/1/boards/${boardId}/lists`;
+    return getPromise(this.client, uri);
   }
 
   /**
@@ -30,5 +47,7 @@ export default class TrelloClient {
    * @return {Array}
    */
   getCards(listId) {
+    const uri = `/1/lists/${listId}/cards`;
+    return getPromise(this.client, uri);
   }
 }
