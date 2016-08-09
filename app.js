@@ -12,9 +12,11 @@ router.get('/', function *() {
 });
 
 router.post('/callback', bodyParser, function *() {
-  console.log(this.request.body);
-  const msg = _.get(this.request.body, 'result[0].content.text', null);
+  const body = this.request.body;
+  const msg  = _.get(body, 'result[0].content.text', null);
+  const from = _.get(body, 'result[0].content.from', null);
   console.log(msg);
+  console.log(from);
   this.status = 200;
 });
 
