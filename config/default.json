@@ -6,6 +6,6 @@
   "line": {
     "channelId": "<your Channel ID>",
     "channelSecret": "<your Channel Secret>",
-    "mid": "<your MID>",
+    "mid": "<your MID>"
   }
 }
