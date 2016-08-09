@@ -19,8 +19,4 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-const port = process.env.PORT || 3000;
-
-console.log('app start.');
-console.log('Access to localhost:3000');
-app.listen(port);
+export const server = app;
