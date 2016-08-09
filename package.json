@@ -23,6 +23,7 @@
     "eslint-plugin-react": "^6.0.0"
   },
   "dependencies": {
+    "axios": "^0.13.1",
     "babel-core": "^6.13.2",
     "babel-polyfill": "^6.13.0",
     "config": "^1.21.0",
