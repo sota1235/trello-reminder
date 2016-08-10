@@ -3,6 +3,7 @@ import config from 'config';
 
 /**
  * @param {Trello} client
+ * @param {string} uri
  * @return {Promise<mixed|Error>}
  */
 const getPromise = (client, uri) => new Promise((resolve, reject) => {
