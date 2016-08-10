@@ -2,7 +2,13 @@
   "extends": "airbnb",
   "rules": {
     "require-jsdoc": "warn",
-    "valid-jsdoc": "warn",
+    "valid-jsdoc": [
+      "warn",
+      {
+        "requireParamDescription": false,
+        "requireReturnDescription": false,
+      }
+    ],
     "no-multi-spaces" : [
       "error",
       {
