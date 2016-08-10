@@ -1,7 +1,6 @@
 /**
  * @description HTTP client for send request to LINE Bot API
  */
-
 import axios  from 'axios';
 import config from 'config';
 
@@ -14,31 +13,30 @@ const toChannel = 1383378250;
 /** @var {string} eventType - Fixed request value for API */
 const eventType = '138311608800106203';
 
+/** @var {Object} client - Default HTTP Client for LINE Bot API */
+const client = axios.create({
+  baseURL : 'https://trialbot-api.line.me/',
+    headers : {
+      'Content-Type'                 : 'application/json; charser=UTF-8',
+      'X-Line-ChannelID'             : lineConfig.channelId,
+      'X-Line-ChannelSecret'         : lineConfig.channelSecret,
+      'X-Line-Trusted-User-With-ACL' : lineConfig.mid,
+    },
+});
+
 /**
  * @class LineClient
  */
 export default class LineClient {
-  constructor() {
-    this.client = axios.create({
-      baseURL : 'https://trialbot-api.line.me/',
-      headers : {
-        'Content-Type'                 : 'application/json; charser=UTF-8',
-        'X-Line-ChannelID'             : lineConfig.channelId,
-        'X-Line-ChannelSecret'         : lineConfig.channelSecret,
-        'X-Line-Trusted-User-With-ACL' : lineConfig.mid,
-      },
-    });
-  }
-
   /**
    * @param {array} userIds
    * @param {string} text
    * @return {Promise<Object|Error>}
    */
-  sendMessage(userIds, text) {
+  static sendMessage(userIds, text) {
     const uri = '/v1/events';
 
-    return this.client.post(uri, {
+    return client.post(uri, {
       to      : userIds,
       content : {
         contentType : 1,
