@@ -20,8 +20,8 @@ const eventType = '138311608800106203';
 export default class LineClient {
   constructor() {
     this.client = axios.create({
-      baseURL: 'https://trialbot-api.line.me/',
-      headers: {
+      baseURL : 'https://trialbot-api.line.me/',
+      headers : {
         'Content-Type'                 : 'application/json; charser=UTF-8',
         'X-Line-ChannelID'             : lineConfig.channelId,
         'X-Line-ChannelSecret'         : lineConfig.channelSecret,
@@ -41,11 +41,12 @@ export default class LineClient {
     return this.client.post(uri, {
       to      : userIds,
       content : {
-        contentType: 1,
-        toType: 1,
+        contentType : 1,
+        toType      : 1,
         text,
       },
-      toChannel, eventType,
+      toChannel,
+      eventType,
     });
   }
 }
