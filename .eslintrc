@@ -1,0 +1,7 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "require-jsdoc": "warn",
+    "valid-jsdoc": "warn"
+  }
+}
