@@ -2,6 +2,26 @@
   "extends": "airbnb",
   "rules": {
     "require-jsdoc": "warn",
-    "valid-jsdoc": "warn"
+    "valid-jsdoc": "warn",
+    "no-multi-spaces" : [
+      "error",
+      {
+        "exceptions": {
+          "VariableDeclarator" : true,
+          "ImportDeclaration"  : true
+        }
+      }
+    ],
+    "no-console": ["off"],
+    "key-spacing": [
+      "error",
+      {
+        "align": {
+          "beforeColon": true,
+          "afterColon": true,
+          "on": "colon"
+        }
+      }
+    ]
   }
 }
