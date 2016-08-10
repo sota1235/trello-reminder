@@ -2,6 +2,7 @@ import koa       from 'koa';
 import koaRouter from 'koa-router';
 import koaBody   from 'koa-body';
 import _         from 'lodash';
+import bot       from './bot';
 
 const app = koa();
 const router = koaRouter();
@@ -21,6 +22,7 @@ router.post('/callback', bodyParser, function* (next) {
   const from = _.get(body, 'result[0].content.from', null);
   console.log(msg);
   console.log(from);
+  bot(from, msg);
 });
 
 app
