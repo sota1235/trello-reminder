@@ -36,7 +36,7 @@ export default class TrelloClient {
 
   /**
    * @param {number} boardId
-   * @return {Array}
+   * @return {Promise<Array|Error>}
    */
   getLists(boardId) {
     const uri = `/1/boards/${boardId}/lists`;
@@ -45,7 +45,7 @@ export default class TrelloClient {
 
   /**
    * @param {number} listId
-   * @return {Array}
+   * @return {Promise<Array|Error>}
    */
   getCards(listId) {
     const uri = `/1/lists/${listId}/cards`;
