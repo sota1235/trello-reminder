@@ -11,6 +11,7 @@ const trelloClient = new TrelloClient();
 /**
  * @param {string} from
  * @param {string} msg
+ * @return {void}
  */
 const bot = async (from, msg) => {
   /** @var {Function} sendMessage - Send message for user */
@@ -40,7 +41,7 @@ const bot = async (from, msg) => {
     const notifyCard = _.chain(cards)
       .map(o => o.name)
       .slice(0, 3);
-    const message = notifyCard.join("\n");
+    const message = notifyCard.join('\n');
 
     sendMessage(message);
   }

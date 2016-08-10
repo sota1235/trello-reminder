@@ -16,12 +16,12 @@ const eventType = '138311608800106203';
 /** @var {Object} client - Default HTTP Client for LINE Bot API */
 const client = axios.create({
   baseURL : 'https://trialbot-api.line.me/',
-    headers : {
-      'Content-Type'                 : 'application/json; charser=UTF-8',
-      'X-Line-ChannelID'             : lineConfig.channelId,
-      'X-Line-ChannelSecret'         : lineConfig.channelSecret,
-      'X-Line-Trusted-User-With-ACL' : lineConfig.mid,
-    },
+  headers : {
+    'Content-Type'                 : 'application/json; charser=UTF-8',
+    'X-Line-ChannelID'             : lineConfig.channelId,
+    'X-Line-ChannelSecret'         : lineConfig.channelSecret,
+    'X-Line-Trusted-User-With-ACL' : lineConfig.mid,
+  },
 });
 
 /**
